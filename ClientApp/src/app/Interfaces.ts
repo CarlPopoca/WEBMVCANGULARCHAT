@@ -4,3 +4,8 @@ export interface Message {
   Name: string,
   Message: string
 }
+export interface MyResponse {
+  Success: number,
+  Data: any,
+  Message: string
+}

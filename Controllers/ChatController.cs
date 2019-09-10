@@ -21,6 +21,7 @@ namespace WEBMVCANGULARCHAT.Controllers
         public IEnumerable<MessageViewModel> Message()
         {
             List<MessageViewModel> lst = (from d in db.Message
+                                          orderby d.Id descending
                                           select new MessageViewModel
                                           {
                                               Id = d.Id,
@@ -31,6 +32,26 @@ namespace WEBMVCANGULARCHAT.Controllers
 
             return lst;
 
+        }
+        [HttpPost("[action]")]
+        public MyResponse Add([FromBody] MessageViewModel model)
+        {
+            MyResponse oR = new MyResponse();
+            try
+            {
+                Message objMessage = new Message();
+                objMessage.Name = model.Name;
+                objMessage.Text = model.Text;
+                db.Message.Add(objMessage);
+                db.SaveChanges();
+                oR.Success = 1;
+            }
+            catch (Exception ex)
+            {
+                oR.Success = 1;
+                oR.Message = ex.Message;
+            }
+            return oR;
         }
     }
 }

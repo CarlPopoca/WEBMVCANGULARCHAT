@@ -1,4 +1,7 @@
-<app-message *ngFor="let elemento of lstMessages | async" [oMessage]="elemento">
+<input type="text" [formControl]="nameControl" />
+<input #text type="text" [formControl]="textControl" />
 
+<input type="button" (click)="SendMessage()" value="Enviar"/>
+<app-message *ngFor="let elemento of lstMessages | async" [oMessage]="elemento">
 </app-message>
 

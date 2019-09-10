@@ -7,5 +7,5 @@ import { Message } from '../Interfaces';
     templateUrl: './message.component.html'
   })
 export class MessageComponent {
- public  @Input() oMessage: Message;
+  @Input() oMessage: Message;
 }
