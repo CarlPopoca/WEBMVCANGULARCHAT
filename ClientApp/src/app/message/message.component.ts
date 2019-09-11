@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Message } from '../Interfaces';
 
+
 @Component(
   {
     selector: 'app-message',

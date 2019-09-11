@@ -30,7 +30,7 @@ namespace WEBMVCANGULARCHAT
                 configuration.RootPath = "ClientApp/dist";
             });
 
-
+            //Se define el tipo de conexión y la cadena de conexión a usar y que se definio en el archivo appsettings.json
             services.AddDbContext<MyDBContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("ChatConnection")));

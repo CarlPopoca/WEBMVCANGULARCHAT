@@ -1,7 +1,16 @@
+<!-- Se le asigna a la propiedad formControl el nombre de los controles para ligarlos con el
+    archivo component.ts -->
 <input type="text" [formControl]="nameControl" />
+<!-- #text nos permitira por medio del ViewChild y ElementRef poder acceder a las
+    propiedades html desde el archivo chat.componente.ts -->
 <input #text type="text" [formControl]="textControl" />
-
-<input type="button" (click)="SendMessage()" value="Enviar"/>
+<!-- Al dar clic sobre este botón se ejecutara el metodo SendMessage del archivo chat.componente.ts-->
+<input type="button" (click)="SendMessage()" value="Enviar" />
+<!-- app-message es el selector o etiqueta del message.component.ts, con *ngFor itera la lista
+   que se almaceno en la variable publica lstMessages del archivo chat.componente.ts y los valores
+   de cada iteracción se guardan en la variable elemento y esta variable se asigna a la variable
+   [oMessage] del archivo message.component.ts para que en el archivo message.component.html
+    se despliegue los mensajes registrados en la Base de datos-->
 <app-message *ngFor="let elemento of lstMessages | async" [oMessage]="elemento">
 </app-message>
 
